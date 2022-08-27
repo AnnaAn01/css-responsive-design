@@ -64,6 +64,29 @@ section {
   width: min(90%, 70.5rem);
 }
 
+.split {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 40em) {
+  .split {
+    flex-direction: row;
+  }
+
+  /* for equal columns */
+  /* split, then all the direct children of that split, will have equal width */
+  .split > * {
+    flex-basis: 100%;
+  }
+
+  /* this is the adjacent sibling selector, it says any element that has a sibling before it. 
+  So, we havee an element, the text div, and before it it has the image.  */
+  .split > * + * {
+    margin-left: 2em;
+  }
+}
+
 .container--narrow {
   max-width: 35rem;
 }
